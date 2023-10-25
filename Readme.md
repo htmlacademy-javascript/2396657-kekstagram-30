@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
-* Студент: [Марина Менщикова](https://up.htmlacademy.ru/javascript/30/user/2396657).
-* Наставник: `Виктория Никитина`.
+* Студент: [Marina Menschikova](https://up.htmlacademy.ru/javascript/30/user/2396657).
+* Наставник: `Victoria Nikitina`.
 
 ---
 
