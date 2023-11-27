@@ -22,6 +22,41 @@ const names = [
   'Гена'
 ];
 
+
+//Функция для валидации уникальности индентификаторов
+const getUniqueRandomPositiveInteger = (a, b) => {
+  const arr = [];
+  let flag = true;
+  let randomInteger;
+  while (flag) {
+    randomInteger = getRandomPositiveInteger (a, b);
+    if (!arr.includes(randomInteger)) {
+      arr.push(randomInteger);
+      flag = false;
+    }
+  }
+  return randomInteger;
+};
+
+//Функция для получения объекта с комментарием
+const getPhotoMessages = () => {
+  return {
+    id: getUniqueRandomPositiveInteger(1, 200),
+    avatar:'img/avatar-' + getUniqueRandomPositiveInteger(1, 6) + '.svg',
+    message: getRandomArrayElement(messages),
+    name: getRandomArrayElement(names)
+  };
+};
+
+//Функция для получения массива с комментариями
+const getComments = () => {
+  const comments = [];
+  for (let i = 0; i < PHOTO_COUNT; i++) {
+    comments.push(getPhotoMessages());
+  }
+  return comments;
+};
+
 //Функция для генерации описания к фото
 const getPhotoDescription = () => {
   return {
@@ -41,40 +76,6 @@ const getPhotos = () =>{
     photos.push(getPhotoDescription());
   }
   return photos;
-};
-
-//Функция для валидации уникальности индентификаторов
-const getUniqueRandomPositiveInteger = (a, b) => {
-  const arr = [];
-  let flag = true;
-  let randomInteger;
-  while (flag) {
-    randomInteger = getRandomPositiveInteger (a, b);
-    if (!arr.includes(randomInteger)) {
-    arr.push(randomInteger);
-    flag = false;
-    };
-  };
-  return randomInteger;
-};
-
-//Функция для получения объекта с комментарием
-const getPhotoMessages = () => {
-  return {
-    id: getUniqueRandomPositiveInteger(1, 200),
-    avatar:'img/avatar-' + getUniqueRandomPositiveInteger(1, 6) + '.svg',
-    message: getRandomArrayElement(messages),
-    name: getRandomArrayElement(names)
-  }
-};
-
-//Функция для получения массива с комментариями
-const getComments = () => {
-  const comments = [];
-  for (let i = 0; i < PHOTO_COUNT; i++) {
-    comments.push(getPhotoMessages());
-  }
-  return comments;
 };
 
 export {getPhotos};
